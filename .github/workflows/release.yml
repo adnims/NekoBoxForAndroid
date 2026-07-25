@@ -62,10 +62,9 @@ jobs:
       - name: Setup Fixed Debug Keystore
         run: |
           mkdir -p ~/.android
-          keytool -genkey -v -keystore ~/.android/debug.keystore \
-            -storepass android -alias androiddebugkey -keypass android \
-            -keyalg RSA -keysize 2048 -validity 10000 \
-            -dname "CN=Android Debug,O=Android,C=US"
+          echo "M3q/wAUAAAAOAAAAAgAAAAAAAAAAAAAAAQALYW5kcm9pZGRlYnVna2V5AAABj/l4vI4AAAAC
+          ABNDTj1BbmRyb2lkIERlYnVnLCBPPUFuZHJvaWQsIEM9VVMAAwEBAXgAAwEBEP+wjTjTTz8A
+          AAAAAAMAAAAAABf+AAAAAgARYW5kcm9pZGRlYnVna2V5X2tleQA=" | base64 -d > ~/.android/debug.keystore
       - name: Gradle Build
         env:
           BUILD_PLUGIN: none
