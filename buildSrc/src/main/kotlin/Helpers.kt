@@ -6,7 +6,9 @@ import org.gradle.api.Project
 import org.gradle.api.plugins.ExtensionAware
 import org.gradle.kotlin.dsl.getByName
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
+import java.util.Base64
 import java.util.Properties
+import kotlin.system.exitProcess
 
 private val Project.android get() = extensions.getByName<ApplicationExtension>("android")
 
@@ -26,9 +28,10 @@ fun Project.requireLocalProperties(): Properties {
     if (!::localProperties.isInitialized) {
         localProperties = Properties()
 
-        val rawProperties = System.getenv("LOCAL_PROPERTIES")
-        if (!rawProperties.isNullOrBlank()) {
-            localProperties.load(rawProperties.byteInputStream())
+        val base64 = System.getenv("LOCAL_PROPERTIES")
+        if (!base64.isNullOrBlank()) {
+
+            localProperties.load(Base64.getDecoder().decode(base64).inputStream())
         } else if (project.rootProject.file("local.properties").exists()) {
             localProperties.load(rootProject.file("local.properties").inputStream())
         }
