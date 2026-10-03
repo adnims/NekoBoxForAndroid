@@ -168,6 +168,37 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         tunImplementation.onPreferenceChangeListener = reloadListener
         acquireWakeLock.onPreferenceChangeListener = reloadListener
         globalCustomConfig.onPreferenceChangeListener = reloadListener
+
+        val speedTestUA = findPreference<SimpleMenuPreference>(Key.SPEED_TEST_USER_AGENT)!!
+        val v2rayTransportUA = findPreference<SimpleMenuPreference>(Key.V2RAY_TRANSPORT_USER_AGENT)!!
+        speedTestUA.setOnPreferenceChangeListener { _, newValue ->
+            if (newValue == "custom") {
+                showCustomUaDialog(speedTestUA)
+                false
+            } else true
+        }
+        v2rayTransportUA.setOnPreferenceChangeListener { _, newValue ->
+            if (newValue == "custom") {
+                showCustomUaDialog(v2rayTransportUA)
+                false
+            } else true
+        }
+    }
+
+    private fun showCustomUaDialog(pref: SimpleMenuPreference) {
+        val current = pref.value?.takeIf { it.isNotBlank() && it != "custom" } ?: ""
+        val input = EditText(requireContext()).apply { setText(current) }
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.custom_ua_dialog_title)
+            .setView(input)
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                val value = input.text.toString().trim()
+                if (value.isNotEmpty()) {
+                    pref.value = value
+                }
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
     }
 
     override fun onResume() {

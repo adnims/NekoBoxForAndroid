@@ -213,6 +213,22 @@
             app:key="connectionTestURL"
             app:title="@string/connection_test_url"
             app:useSimpleSummaryProvider="true" />
+        <moe.matsuri.nb4a.ui.SimpleMenuPreference
+            app:entries="@array/ua_entries"
+            app:entryValues="@array/ua_values"
+            app:icon="@drawable/ic_baseline_cast_connected_24"
+            app:key="speedTestUserAgent"
+            app:summary="@string/speed_test_user_agent_sum"
+            app:title="@string/speed_test_user_agent"
+            app:useSimpleSummaryProvider="true" />
+        <moe.matsuri.nb4a.ui.SimpleMenuPreference
+            app:entries="@array/ua_entries"
+            app:entryValues="@array/ua_values"
+            app:icon="@drawable/ic_baseline_cast_connected_24"
+            app:key="v2rayTransportUserAgent"
+            app:summary="@string/v2ray_transport_user_agent_sum"
+            app:title="@string/v2ray_transport_user_agent"
+            app:useSimpleSummaryProvider="true" />
         <SwitchPreference
             app:icon="@drawable/baseline_construction_24"
             app:key="enableClashAPI"

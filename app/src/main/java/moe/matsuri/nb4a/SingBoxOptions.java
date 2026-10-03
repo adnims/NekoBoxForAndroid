@@ -4570,6 +4570,8 @@ public class SingBoxOptions {
 
         public String service_name;
 
+        public String user_agent;
+
         public Long idle_timeout;
 
         public Long ping_timeout;
@@ -4584,6 +4586,8 @@ public class SingBoxOptions {
         public String host;
 
         public String path;
+
+        public Map<String, String> headers;
 
 
     }

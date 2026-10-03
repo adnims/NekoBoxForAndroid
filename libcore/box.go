@@ -213,7 +213,7 @@ func (b *BoxInstance) SelectOutbound(tag string) bool {
 	return false
 }
 
-func UrlTest(i *BoxInstance, link string, timeout int32) (latency int32, err error) {
+func UrlTest(i *BoxInstance, link string, timeout int32, userAgent string) (latency int32, err error) {
 	defer device.DeferPanicToError("box.UrlTest", func(err_ error) { err = err_ })
 	var connectionTracker adapter.ConnectionTracker
 	// test i
@@ -221,17 +221,17 @@ func UrlTest(i *BoxInstance, link string, timeout int32) (latency int32, err err
 		if i.v2api != nil {
 			connectionTracker = i.v2api.StatsService()
 		}
-		return speedtest.UrlTest(boxapi.CreateProxyHttpClient(i.Box, connectionTracker), link, timeout, speedtest.UrlTestStandard_RTT)
+		return speedtest.UrlTest(boxapi.CreateProxyHttpClient(i.Box, connectionTracker), link, timeout, speedtest.UrlTestStandard_RTT, userAgent)
 	}
 	// test direct
 	if mainInstance == nil {
-		return speedtest.UrlTest(boxapi.CreateProxyHttpClient(nil, nil), link, timeout, speedtest.UrlTestStandard_RTT)
+		return speedtest.UrlTest(boxapi.CreateProxyHttpClient(nil, nil), link, timeout, speedtest.UrlTestStandard_RTT, userAgent)
 	}
 	// test mainInstance
 	if mainInstance.v2api != nil {
 		connectionTracker = mainInstance.v2api.StatsService()
 	}
-	return speedtest.UrlTest(boxapi.CreateProxyHttpClient(mainInstance.Box, connectionTracker), link, timeout, speedtest.UrlTestStandard_RTT)
+	return speedtest.UrlTest(boxapi.CreateProxyHttpClient(mainInstance.Box, connectionTracker), link, timeout, speedtest.UrlTestStandard_RTT, userAgent)
 }
 
 var protectCloser io.Closer

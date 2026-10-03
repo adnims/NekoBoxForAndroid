@@ -2,6 +2,11 @@ package io.nekohasekai.sagernet
 
 const val CONNECTION_TEST_URL = "http://cp.cloudflare.com/"
 
+const val UA_CHROME = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36"
+const val UA_FIREFOX = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:130.0) Gecko/20100101 Firefox/130.0"
+const val UA_SAFARI = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"
+const val UA_EDGE = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0"
+
 object Key {
 
     const val DB_PUBLIC = "configuration.db"
@@ -151,6 +156,8 @@ object Key {
 
     const val APP_TLS_VERSION = "appTLSVersion"
     const val ENABLE_CLASH_API = "enableClashAPI"
+    const val V2RAY_TRANSPORT_USER_AGENT = "v2rayTransportUserAgent"
+    const val SPEED_TEST_USER_AGENT = "speedTestUserAgent"
 }
 
 object TunImplementation {

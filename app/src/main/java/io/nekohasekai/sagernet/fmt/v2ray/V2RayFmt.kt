@@ -521,6 +521,7 @@ fun StandardV2RayBean.toUriVMessVLESSTrojan(isTrojan: Boolean): String {
 }
 
 fun buildSingBoxOutboundStreamSettings(bean: StandardV2RayBean): V2RayTransportOptions? {
+    val ua = DataStore.v2rayTransportUserAgent.takeIf { it.isNotBlank() && it != "custom" }
     when (bean.type) {
         "tcp" -> {
             return null
@@ -533,6 +534,10 @@ fun buildSingBoxOutboundStreamSettings(bean: StandardV2RayBean): V2RayTransportO
 
                 if (bean.host.isNotBlank()) {
                     headers["Host"] = bean.host
+                }
+
+                if (ua != null) {
+                    headers["User-Agent"] = ua
                 }
 
                 if (bean.path.contains("?ed=")) {
@@ -561,6 +566,9 @@ fun buildSingBoxOutboundStreamSettings(bean: StandardV2RayBean): V2RayTransportO
                     host = bean.host.split(",")
                 }
                 path = bean.path.takeIf { it.isNotBlank() } ?: "/"
+                if (ua != null) {
+                    headers = mutableMapOf("User-Agent" to ua)
+                }
             }
         }
 
@@ -574,6 +582,7 @@ fun buildSingBoxOutboundStreamSettings(bean: StandardV2RayBean): V2RayTransportO
             return V2RayTransportOptions_GRPCOptions().apply {
                 type = "grpc"
                 service_name = bean.path
+                user_agent = ua
             }
         }
 
@@ -582,6 +591,9 @@ fun buildSingBoxOutboundStreamSettings(bean: StandardV2RayBean): V2RayTransportO
                 type = "httpupgrade"
                 host = bean.host
                 path = bean.path
+                if (ua != null) {
+                    headers = mutableMapOf("User-Agent" to ua)
+                }
             }
         }
     }
