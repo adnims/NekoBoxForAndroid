@@ -505,4 +505,7 @@
     <string name="v2ray_transport_user_agent">V2Ray 传输 UA</string>
     <string name="v2ray_transport_user_agent_sum">ws / grpc / httpupgrade 传输使用的 User-Agent</string>
     <string name="custom_ua_dialog_title">自定义 User-Agent</string>
+
+    <string name="auto_update_route_assets">自动更新路由文件</string>
+    <string name="auto_update_route_assets_sum">每周自动更新一次 geoip / geosite</string>
 </resources>

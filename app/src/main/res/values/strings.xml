@@ -585,4 +585,7 @@
     <string name="v2ray_transport_user_agent">V2Ray transport UA</string>
     <string name="v2ray_transport_user_agent_sum">User-Agent used for ws / grpc / httpupgrade transports</string>
     <string name="custom_ua_dialog_title">Custom User-Agent</string>
+
+    <string name="auto_update_route_assets">Auto update route assets</string>
+    <string name="auto_update_route_assets_sum">Update geoip / geosite weekly</string>
 </resources>

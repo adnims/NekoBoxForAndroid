@@ -158,6 +158,7 @@ object Key {
     const val ENABLE_CLASH_API = "enableClashAPI"
     const val V2RAY_TRANSPORT_USER_AGENT = "v2rayTransportUserAgent"
     const val SPEED_TEST_USER_AGENT = "speedTestUserAgent"
+    const val AUTO_UPDATE_ROUTE_ASSETS = "autoUpdateRouteAssets"
 }
 
 object TunImplementation {

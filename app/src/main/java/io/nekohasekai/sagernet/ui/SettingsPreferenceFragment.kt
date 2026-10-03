@@ -12,6 +12,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.nekohasekai.sagernet.Key
 import io.nekohasekai.sagernet.R
 import io.nekohasekai.sagernet.SagerNet
+import io.nekohasekai.sagernet.bg.RouteAssetUpdater
 import io.nekohasekai.sagernet.database.DataStore
 import io.nekohasekai.sagernet.database.preference.EditTextPreferenceModifiers
 import io.nekohasekai.sagernet.ktx.*
@@ -171,6 +172,13 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
 
         val speedTestUA = findPreference<SimpleMenuPreference>(Key.SPEED_TEST_USER_AGENT)!!
         val v2rayTransportUA = findPreference<SimpleMenuPreference>(Key.V2RAY_TRANSPORT_USER_AGENT)!!
+        val autoUpdateRouteAssets = findPreference<SwitchPreference>(Key.AUTO_UPDATE_ROUTE_ASSETS)!!
+        autoUpdateRouteAssets.setOnPreferenceChangeListener { _, _ ->
+            runOnDefaultDispatcher {
+                RouteAssetUpdater.reconfigureUpdater()
+            }
+            true
+        }
         speedTestUA.setOnPreferenceChangeListener { _, newValue ->
             if (newValue == "custom") {
                 showCustomUaDialog(speedTestUA)

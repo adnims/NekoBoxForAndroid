@@ -261,5 +261,11 @@
         <SwitchPreference
             app:key="showBottomBar"
             app:title="@string/show_bottom_bar" />
+        <SwitchPreference
+            app:defaultValue="true"
+            app:icon="@drawable/ic_baseline_update_24"
+            app:key="autoUpdateRouteAssets"
+            app:summary="@string/auto_update_route_assets_sum"
+            app:title="@string/auto_update_route_assets" />
     </PreferenceCategory>
 </PreferenceScreen>

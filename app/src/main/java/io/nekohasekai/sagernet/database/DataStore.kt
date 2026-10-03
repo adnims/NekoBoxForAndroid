@@ -159,6 +159,7 @@ object DataStore : OnPreferenceDataStoreChangeListener {
     var connectionTestURL by configurationStore.string(Key.CONNECTION_TEST_URL) { CONNECTION_TEST_URL }
     var v2rayTransportUserAgent by configurationStore.string(Key.V2RAY_TRANSPORT_USER_AGENT) { UA_CHROME }
     var speedTestUserAgent by configurationStore.string(Key.SPEED_TEST_USER_AGENT) { UA_CHROME }
+    var autoUpdateRouteAssets by configurationStore.boolean(Key.AUTO_UPDATE_ROUTE_ASSETS) { true }
     var connectionTestConcurrent by configurationStore.int("connectionTestConcurrent") { 5 }
     var alwaysShowAddress by configurationStore.boolean(Key.ALWAYS_SHOW_ADDRESS)
 

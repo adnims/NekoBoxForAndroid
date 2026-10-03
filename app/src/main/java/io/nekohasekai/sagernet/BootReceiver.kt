@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
+import io.nekohasekai.sagernet.bg.RouteAssetUpdater
 import io.nekohasekai.sagernet.bg.SubscriptionUpdater
 import io.nekohasekai.sagernet.database.DataStore
 import io.nekohasekai.sagernet.ktx.app
@@ -25,6 +26,7 @@ class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         runOnDefaultDispatcher {
             SubscriptionUpdater.reconfigureUpdater()
+            RouteAssetUpdater.reconfigureUpdater()
         }
 
         if (!DataStore.persistAcrossReboot) {   // sanity check
