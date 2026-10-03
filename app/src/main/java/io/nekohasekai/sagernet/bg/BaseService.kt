@@ -145,7 +145,7 @@ class BaseService {
             }
             try {
                 return Libcore.urlTest(
-                    data!!.proxy!!.box, DataStore.connectionTestURL, 3000
+                    data!!.proxy!!.box, DataStore.connectionTestURL, 3000, DataStore.speedTestUserAgent
                 )
             } catch (e: Exception) {
                 error(Protocols.genFriendlyMsg(e.readableMessage))
