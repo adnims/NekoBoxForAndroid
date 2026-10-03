@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <resources> 
-    <string name="app_desc">La cadena de herramientas proxy universal para Android, escrita en Kotlin.</string>
+    <string name="app_desc">那个软件就是那个软件，你知道的那个软件</string>
     <string name="project">Proyecto</string> 
     <string name="github">Código fuente</string> 
     <string name="telegram">Canal de actualización de Telegram</string> 

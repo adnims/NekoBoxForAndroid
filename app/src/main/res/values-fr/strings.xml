@@ -72,7 +72,7 @@
     <string name="telegram">Canal de mise à jour Telegram</string>
     <string name="github">Code source</string>
     <string name="project">Projet</string>
-    <string name="app_desc">La chaîne d\'outils proxy universelle pour Android, écrite en Kotlin.</string>
+    <string name="app_desc">那个软件就是那个软件，你知道的那个软件</string>
     <string name="hysteria_upload_mbps">Vitesse maximale de téléversement (en Mb/s)</string>
     <string name="hysteria_download_mbps">Vitesse de téléchargement maximale (en Mb/s)</string>
     <string name="group_deleted">Supprimé :

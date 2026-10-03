@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name" translatable="false">那个软件</string>
     <string name="app_name_long" translatable="false">那个软件 for Android</string>
-    <string name="app_desc">Універсальний набір інструментів проксі для Android, написаний на Kotlin.</string>
+    <string name="app_desc">那个软件就是那个软件，你知道的那个软件</string>
     <string name="project">Проєкт</string>
     <string name="github">Вихідний код</string>
     <string name="telegram">Канал оновлень в Telegram</string>
