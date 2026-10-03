@@ -9,10 +9,8 @@ import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkerParameters
 import androidx.work.multiprocess.RemoteWorkManager
 import io.nekohasekai.sagernet.R
-import io.nekohasekai.sagernet.SagerNet
 import io.nekohasekai.sagernet.database.DataStore
-import io.nekohasekai.sagernet.ktx.Logs
-import io.nekohasekai.sagernet.ktx.app
+import io.nekohasekai.sagernet.ktx.*
 import libcore.Libcore
 import moe.matsuri.nb4a.utils.Util
 import org.json.JSONObject
@@ -70,8 +68,8 @@ object RouteAssetUpdater {
         wm.enqueueUniquePeriodicWork(
             WORK_NAME,
             KEEP,
-            PeriodicWorkRequest.Builder(RouteAssetUpdateTask::class.java, WEEK_MINUTES, TimeUnit.MINUTES)
-                .setInitialDelay(WEEK_MINUTES, TimeUnit.MINUTES)
+            PeriodicWorkRequest.Builder(RouteAssetUpdateTask::class.java, WEEK_MINUTES.toLong(), TimeUnit.MINUTES)
+                .setInitialDelay(WEEK_MINUTES.toLong(), TimeUnit.MINUTES)
                 .build()
         )
     }
@@ -130,7 +128,7 @@ object RouteAssetUpdater {
 
     /** Headless update of the official route assets. Safe to call from any background context. */
     suspend fun updateAll() {
-        val filesDir = SagerNet.externalAssets
+        val filesDir = app.getExternalFilesDir(null) ?: app.filesDir
         for (name in assetFiles) {
             val file = File(filesDir, name)
             val versionFile = File(filesDir, name.removeSuffix(".db") + ".version.txt")
