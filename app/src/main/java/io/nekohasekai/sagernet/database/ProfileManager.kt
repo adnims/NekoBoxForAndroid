@@ -190,14 +190,16 @@ object ProfileManager {
                     name = app.getString(R.string.route_opt_block_quic),
                     port = "443",
                     network = "udp",
-                    outbound = -2
+                    outbound = -2,
+                    enabled = true
                 )
             )
             createRule(
                 RuleEntity(
                     name = app.getString(R.string.route_opt_block_ads),
                     domains = "geosite:category-ads-all",
-                    outbound = -2
+                    outbound = -2,
+                    enabled = true
                 )
             )
             val fuckedCountry = mutableListOf("cn:中国")
@@ -214,20 +216,23 @@ object ProfileManager {
                     RuleEntity(
                         name = app.getString(R.string.route_play_store, displayCountry),
                         domains = "googleapis.cn",
+                        enabled = true
                     ), false
                 )
                 createRule(
                     RuleEntity(
                         name = app.getString(R.string.route_bypass_domain, displayCountry),
                         domains = "geosite:$country",
-                        outbound = -1
+                        outbound = -1,
+                        enabled = true
                     ), false
                 )
                 createRule(
                     RuleEntity(
                         name = app.getString(R.string.route_bypass_ip, displayCountry),
                         ip = "geoip:$country",
-                        outbound = -1
+                        outbound = -1,
+                        enabled = true
                     ), false
                 )
             }

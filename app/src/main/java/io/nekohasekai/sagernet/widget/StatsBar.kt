@@ -128,7 +128,7 @@ class StatsBar @JvmOverloads constructor(
         setStatus(app.getText(R.string.connection_test_testing))
         runOnDefaultDispatcher {
             try {
-                val elapsed = activity.urlTest()
+                val elapsed = activity.urlTest() / 2
                 onMainDispatcher {
                     isEnabled = true
                     setStatus(

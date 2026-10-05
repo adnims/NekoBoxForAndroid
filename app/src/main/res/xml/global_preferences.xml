@@ -13,7 +13,7 @@
             app:icon="@drawable/ic_baseline_color_lens_24"
             app:key="appTheme" />
         <moe.matsuri.nb4a.ui.SimpleMenuPreference
-            app:defaultValue="0"
+            app:defaultValue="2"
             app:entries="@array/night_mode"
             app:entryValues="@array/int_array_4"
             app:icon="@drawable/ic_baseline_wb_sunny_24"
@@ -29,7 +29,7 @@
             app:title="@string/service_mode"
             app:useSimpleSummaryProvider="true" />
         <moe.matsuri.nb4a.ui.SimpleMenuPreference
-            app:defaultValue="0"
+            app:defaultValue="1"
             app:entries="@array/tun_implementation"
             app:entryValues="@array/int_array_3"
             app:icon="@drawable/ic_baseline_flip_camera_android_24"
@@ -74,6 +74,7 @@
         <SwitchPreference
             app:icon="@drawable/ic_device_data_usage"
             app:key="meteredNetwork"
+            app:defaultValue="true"
             app:summary="@string/metered_summary"
             app:title="@string/metered" />
         <SwitchPreference
@@ -105,6 +106,7 @@
         <SwitchPreference
             app:icon="@drawable/ic_baseline_legend_toggle_24"
             app:key="bypassLan"
+            app:defaultValue="true"
             app:title="@string/route_opt_bypass_lan" />
         <SwitchPreference
             app:key="bypassLanInCore"
@@ -131,7 +133,7 @@
             app:title="@string/ipv6"
             app:useSimpleSummaryProvider="true" />
         <moe.matsuri.nb4a.ui.SimpleMenuPreference
-            app:defaultValue="0"
+            app:defaultValue="1"
             app:entries="@array/rules_dat_provider"
             app:entryValues="@array/int_array_4"
             app:icon="@drawable/ic_baseline_rule_folder_24"
@@ -216,7 +218,7 @@
         <moe.matsuri.nb4a.ui.SimpleMenuPreference
             app:entries="@array/ua_entries"
             app:entryValues="@array/ua_values"
-            app:icon="@drawable/ic_baseline_cast_connected_24"
+            app:icon="@drawable/ic_baseline_speed_24"
             app:key="speedTestUserAgent"
             app:summary="@string/speed_test_user_agent_sum"
             app:title="@string/speed_test_user_agent"
@@ -224,11 +226,17 @@
         <moe.matsuri.nb4a.ui.SimpleMenuPreference
             app:entries="@array/ua_entries"
             app:entryValues="@array/ua_values"
-            app:icon="@drawable/ic_baseline_cast_connected_24"
+            app:icon="@drawable/ic_baseline_person_24"
             app:key="v2rayTransportUserAgent"
             app:summary="@string/v2ray_transport_user_agent_sum"
             app:title="@string/v2ray_transport_user_agent"
             app:useSimpleSummaryProvider="true" />
+        <SwitchPreference
+            app:defaultValue="true"
+            app:icon="@drawable/ic_baseline_update_24"
+            app:key="autoUpdateRouteAssets"
+            app:summary="@string/auto_update_route_assets_sum"
+            app:title="@string/auto_update_route_assets" />
         <SwitchPreference
             app:icon="@drawable/baseline_construction_24"
             app:key="enableClashAPI"
@@ -241,6 +249,7 @@
             app:title="@string/network_change_reset_connections"
             app:useSimpleSummaryProvider="true" />
         <SwitchPreference
+            app:defaultValue="true"
             app:key="wakeResetConnections"
             app:title="@string/wake_reset_connections"
             app:useSimpleSummaryProvider="true" />
@@ -259,13 +268,8 @@
             app:title="@string/app_tls_version"
             app:useSimpleSummaryProvider="true" />
         <SwitchPreference
+            app:defaultValue="true"
             app:key="showBottomBar"
             app:title="@string/show_bottom_bar" />
-        <SwitchPreference
-            app:defaultValue="true"
-            app:icon="@drawable/ic_baseline_update_24"
-            app:key="autoUpdateRouteAssets"
-            app:summary="@string/auto_update_route_assets_sum"
-            app:title="@string/auto_update_route_assets" />
     </PreferenceCategory>
 </PreferenceScreen>

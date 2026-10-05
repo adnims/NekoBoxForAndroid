@@ -853,7 +853,7 @@ class ConfigurationFragment @JvmOverloads constructor(
                         try {
                             val result = urlTest.doTest(profile)
                             profile.status = 1
-                            profile.ping = result
+                            profile.ping = result / 2
                         } catch (e: PluginManager.PluginNotFoundException) {
                             profile.status = 2
                             profile.error = e.readableMessage
