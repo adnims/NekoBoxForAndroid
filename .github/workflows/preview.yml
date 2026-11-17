@@ -51,6 +51,11 @@ jobs:
         with:
           path: ~/.gradle
           key: gradle-oss-${{ hashFiles('**/*.gradle.kts') }}
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
       - name: Install Android NDK
         run: |
           yes | sdkmanager --install "ndk;25.0.8775105" || true
