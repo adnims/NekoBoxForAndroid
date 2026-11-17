@@ -20,7 +20,7 @@ object SingBoxOptionsUtil {
 
             // server
             else -> {
-                auto2("domain_strategy_for_server", "prefer_ipv4")
+                auto2("domain_strategy_for_server", "prefer_ipv6")
             }
         }
     }
