@@ -216,7 +216,7 @@ object ProfileManager {
                     RuleEntity(
                         name = app.getString(R.string.route_play_store, displayCountry),
                         domains = "googleapis.cn",
-                        enabled = true
+                        enabled = false
                     ), false
                 )
                 createRule(

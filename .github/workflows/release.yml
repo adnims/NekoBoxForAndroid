@@ -57,6 +57,15 @@ jobs:
         with:
           path: ~/.gradle
           key: gradle-oss-${{ hashFiles('**/*.gradle.kts') }}
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install Android NDK
+        run: |
+          yes | sdkmanager --install "ndk;25.0.8775105" || true
+          echo "ANDROID_NDK_HOME=${ANDROID_HOME}/ndk/25.0.8775105" >> "$GITHUB_ENV"
       - name: Gradle Build
         env:
           BUILD_PLUGIN: none
@@ -65,7 +74,7 @@ jobs:
           echo "ndk.dir=${ANDROID_NDK_HOME}" >> local.properties
           export LOCAL_PROPERTIES="${{ secrets.LOCAL_PROPERTIES }}"
           ./run init action gradle
-          ./gradlew app:assembleOssRelease
+          ./gradlew --stacktrace app:assembleOssRelease
           APK=$(find app/build/outputs/apk -name '*arm64-v8a*.apk')
           APK=$(dirname $APK)
           echo "APK=$APK" >> $GITHUB_ENV

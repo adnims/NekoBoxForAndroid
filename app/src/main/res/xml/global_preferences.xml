@@ -125,7 +125,7 @@
             app:summary="@string/resolve_destination_summary"
             app:title="@string/resolve_destination" />
         <moe.matsuri.nb4a.ui.SimpleMenuPreference
-            app:defaultValue="0"
+            app:defaultValue="1"
             app:entries="@array/ipv6_mode"
             app:entryValues="@array/int_array_4"
             app:icon="@drawable/ic_image_looks_6"
@@ -170,7 +170,7 @@
             app:title="@string/domain_strategy_for_direct"
             app:useSimpleSummaryProvider="true" />
         <moe.matsuri.nb4a.ui.SimpleMenuPreference
-            app:defaultValue="auto"
+            app:defaultValue="prefer_ipv6"
             app:entries="@array/dns_network_select"
             app:entryValues="@array/dns_network_select"
             app:key="domain_strategy_for_server"
